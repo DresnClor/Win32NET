@@ -16,12 +16,12 @@ C#      =>  C/C++
 IntPtr  => HWND, UNIT, char *, wchar_t *, void *, int *, short *, long *, long long *, float *, double *, HINSTANCE
 byte    => char
 char    => wchar_t
-int     => int
+int     => int, DWORD
 short   => short
 long    => long, long long
 float   => float
 double  => double
-
+bool    => BOOL
 
 
 目前已定函数分类表：
