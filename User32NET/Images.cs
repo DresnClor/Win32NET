@@ -21,7 +21,7 @@ namespace User32NET
 
 		/// <summary>
 		/// 函数说明:装载图标，光标，或位图。
-		/// 函数原型:HANDLE LoadImage(HINSTANCE hinst，LPCTSTR lpszName，UINT uType，int cxDesired，int cyDesired，UINT fuLoad);
+		/// 函数原型:HANDLE LoadImage(HINSTANCE hinst,LPCTSTR lpszName,UINT uType,int cxDesired,int cyDesired,UINT fuLoad);
 		/// </summary>
 		/// <param name="hinst">处理包含被装载图像模块的实例。若要装载OEM图像，则设此参数值为0</param>
 		/// <param name="lpszName">指向保留在hinst模块中装载的图像资源名称</param>
@@ -31,7 +31,7 @@ namespace User32NET
 		/// <param name="fuLoad">图像装载方式</param>
 		/// <return>如果函数成功，返回相关资源的数据句柄。如果失败，返回NULL</return>
 		[DllImport("user32.dll")]
-		public static extern IntPt LoadImage(IntPt hinst，string lpszName，uint uType，int cxDesired，int cyDesired，uint fuLoad);
+		public static extern IntPt LoadImage(IntPt hinst,string lpszName,uint uType,int cxDesired,int cyDesired,uint fuLoad);
 
     }
 }
