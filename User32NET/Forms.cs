@@ -39,17 +39,17 @@ namespace User32NET
 		/// 函数原型：HWND GetLastActivePopup（HWND hWnd）；
 		/// </summary>
 		/// <param name="hWnd">所有者窗口句柄</param>
-		/// <returns></returns>
+		/// <returns>返回最近活动的窗口句柄</returns>
 		[DllImport("user32.dll")]
 		public static extern IntPtr GetLastActivePopup(IntPtr hWnd);
 
 		/// <summary>
-		/// 该函数返回z序中的前一个或后一个窗口的句柄。下一窗口在指定窗口的下面，前一窗口则在上面。如果指定的窗口是顶端窗口，该函数返回下一个（或前一个）顶端窗口的句柄。如果指定的窗口是顶层窗口，函数返回下一个（或前一个）顶层窗口的句柄。如果函数是子窗口，则函数搜索下一个或前一个子窗口的句柄
+		/// 下一窗口在指定窗口的下面，前一窗口则在上面。如果指定的窗口是顶端窗口，该函数返回下一个（或前一个）顶端窗口的句柄。如果指定的窗口是顶层窗口，函数返回下一个（或前一个）顶层窗口的句柄。如果函数是子窗口，则函数搜索下一个或前一个子窗口的句柄
 		/// 函数原型：HWND GetNextWindow（HWND hWnd，UNIT wCmd）；
 		/// </summary>
 		/// <param name="hWnd">一个窗口的句柄。窗口句柄在wCmd参数的基础上获得的相对于这个窗口的句柄</param>
 		/// <param name="wCmd">指明窗口返回的是前一窗口的句柄还是后一窗口的句柄。该参数可以是下列两个值之一</param>
-		/// <returns></returns>
+		/// <returns>返回z序中的前一个或后一个窗口的句柄</returns>
 		[DllImport("user32.dll")]
 		public static extern IntPtr GetNextWindow(IntPtr hWnd, IntPtr wCmd);
 
@@ -61,5 +61,7 @@ namespace User32NET
 		/// <returns>如果函数成功，返回值为父窗口句柄。如果窗口无父窗口，则函数返回NULL</returns>
 		[DllImport("user32.dll")]
 		public static extern IntPtr GetParent(IntPtr hWnd);
+
+		
 	}
 }
