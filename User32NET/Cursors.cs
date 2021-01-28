@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -13,7 +13,8 @@ namespace User32NET
     public class Cursors
     {
         /// <summary>
-        /// 加载鼠标光标文件
+        /// 函数说明:从指定文件中加载光标
+        /// 函数原型:
         /// </summary>
         /// <param name="fileName">.cur文件路径</param>
         /// <returns>如果成功，则返回光标文件句柄</returns>
