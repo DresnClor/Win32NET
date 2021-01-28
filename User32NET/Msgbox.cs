@@ -30,6 +30,7 @@ namespace User32NET
         /// <param name="uType">要显示的按钮和图标</param>
         /// <param name="wLanguageld">指定哪一个语言资源集被用于预定义的下推按钮</param>
         /// <return>返回点击的按钮ID</return>
+         [DllImport("user32.dll")]
         public static extern int MessageBoxEx(IntPtr hWnd,string lpText, string IpCaption, uint UType, short wLanguageld);
 
         /// <summary>
@@ -38,7 +39,8 @@ namespace User32NET
         /// </summary>
         /// <param name="lpMsgBoxParams">指向一个MSGBOXPARAMS结构体的指针，包含了显示这个消息框的信息。</param>
         /// <return>如果函数成功，返回一个代表用户选项的ID；如果有取消按钮，用户按下取消按钮或ESC键，将返回IDCANCEL，如果没有取消按钮，按下ESC无效；如果内存不足导致创建失败，则返回0。</return>
-        int MessageBoxIndirect(IntPtr lpMsgBoxParams);
+        [DllImport("user32.dll")]
+		public static extern int MessageBoxIndirect(IntPtr lpMsgBoxParams);
 
                                                                                                                                             
                                                                                                                                                                                    
