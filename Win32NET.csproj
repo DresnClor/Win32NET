@@ -141,7 +141,6 @@
   <ItemGroup>
     <Folder Include="Advapi32\" />
     <Folder Include="Crypt32\" />
-    <Folder Include="Gdi32\" />
     <Folder Include="Gdiplus\" />
     <Folder Include="Httpapi\" />
     <Folder Include="Netapi32\" />
@@ -157,6 +156,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Gdi32\Drawing.cs" />
     <Compile Include="Kernel32\MapFiles.cs" />
     <Compile Include="Kernel32\Librarys.cs" />
     <Compile Include="Kernel32\Memorys.cs" />
