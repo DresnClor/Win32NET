@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Win32NET</RootNamespace>
     <AssemblyName>Win32NET</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -136,19 +136,7 @@
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Advapi32\" />
-    <Folder Include="Crypt32\" />
-    <Folder Include="Gdiplus\" />
-    <Folder Include="Httpapi\" />
-    <Folder Include="Netapi32\" />
-    <Folder Include="Shell32\" />
-    <Folder Include="Userenv\" />
-    <Folder Include="Winhttp\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Standard.txt" />
   </ItemGroup>
@@ -157,23 +145,32 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Advapi32\AdvApi32.cs" />
+    <Compile Include="Crypt32\Crypt32.cs" />
     <Compile Include="Gdi32\Drawing.cs" />
+    <Compile Include="Gdiplus\Gdiplus.cs" />
+    <Compile Include="Httpapi\HttpApi.cs" />
     <Compile Include="Kernel32\MapFiles.cs" />
     <Compile Include="Kernel32\Librarys.cs" />
     <Compile Include="Kernel32\Memorys.cs" />
     <Compile Include="Kernel32\Storages.cs" />
+    <Compile Include="Netapi32\NetApi32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Kernel32\FileMap.cs" />
     <Compile Include="Kernel32\MapflProtect.cs" />
+    <Compile Include="Shell32\Shell32.cs" />
     <Compile Include="User32\MenuFlags.cs" />
     <Compile Include="User32\WndCmdShow.cs" />
     <Compile Include="User32\WndlnsertAfter.cs" />
-    <Compile Include="User32\WndMsg.cs" />
+    <Compile Include="User32\WindowsMessage.cs" />
     <Compile Include="User32\Cursors.cs" />
     <Compile Include="User32\Menus.cs" />
     <Compile Include="User32\Wnds.cs" />
     <Compile Include="User32\Images.cs" />
+    <Compile Include="Attributes.cs" />
+    <Compile Include="Userenv\Userenv.cs" />
     <Compile Include="Win32.cs" />
+    <Compile Include="Winhttp\WinHttp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 
-namespace Win32NET.User32
+namespace Win32NET
 {
     /// <summary>
     /// 菜单相关
     /// </summary>
-    public static class Menus
+    public static partial class User32
     {
         /// <summary>
         /// 在指定的菜单里添加一个菜单项

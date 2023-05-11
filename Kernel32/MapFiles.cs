@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace Win32NET.Kernel32
+namespace Win32NET
 {
     /// <summary>
     /// 内存映射文件相关
     /// </summary>
-    public static class MapFiles
+    public static partial class Kernel32
     {
         /// <summary>
         /// 用于创建一个文件映射内核对象

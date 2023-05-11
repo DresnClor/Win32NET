@@ -5,24 +5,23 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Win32NET.Kernel32
+namespace Win32NET
 {
     /// <summary>
     /// Kernel32.dll库相关API
     /// </summary>
-    public static class Librarys
+    public static partial class Kernel32
     {
         /// <summary>
         /// 加载动态库
-        /// <para />
-        /// 函数原型:HMODULE WINAPI LoadLibrary( _In_ LPCTSTR lpFileName);
         /// </summary>
-        /// <param name="filePath">库文件</param>
-        /// <returns>加载后的库文件句柄</returns>
-        [DllImport(Win32.Kernel32dll, CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport(Win32.Kernel32dll, SetLastError = true)]
+        [WinApi("LoadLibrary", Win32.Kernel32dll, "HMODULE LoadLibrary(LPCTSTR lpFileName)", "加载动态库")]
+        [ApiReturn(MarshalType.Ptr, "加载后的库文件句柄")]
+        [ApiParam("lpFileName", MarshalType.Ptr, "库文件路径")]
         public static extern IntPtr LoadLibrary(
-            [MarshalAs(UnmanagedType.LPTStr)]
-            string filePath);
+            [MarshalAs(UnmanagedType.LPStr)]
+            string lpFileName);
 
         /// <summary>
         /// 释放动态库

@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace Win32NET.Kernel32
+namespace Win32NET
 {
     /// <summary>
     /// 文件存储相关
     /// </summary>
-    public static class Storages
+    public static partial class Kernel32
     {
        
     }

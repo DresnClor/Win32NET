@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace Win32NET.User32
+namespace Win32NET
 {
     /// <summary>
     /// 图像处理类
     /// </summary>
-    public static class Images
+    public static partial class User32
     {
         /// <summary>
         /// 函数说明:该函数从模块的可执行文件中加载指定的位图资源。该函数已经被函数LoadImage替代

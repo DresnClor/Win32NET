@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace Win32NET.User32
+namespace Win32NET
 {
     /// <summary>
     /// 窗体类
     /// </summary>
-    public static class Wnds
+    public static partial class User32
     {
         /// <summary>
         /// 该函数获取窗口客户区的坐标。客户区坐标指定客户区的左上角和右下角。由于客户区坐标是相对子窗口客户区的左上角而言的，因此左上角坐标为（0，0）
@@ -188,7 +188,7 @@ namespace Win32NET.User32
         public static extern IntPtr SendMessageE(
             IntPtr hWnd,
             [MarshalAs(UnmanagedType.U4)]
-            WndMsg Msg,
+            WindowsMessage Msg,
             IntPtr wParam,
             IntPtr lParam);
 

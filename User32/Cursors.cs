@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace Win32NET.User32
+namespace Win32NET
 {
     /// <summary>
     /// 鼠标光标类
     /// </summary>
-    public class Cursors
+    public static partial class User32
     {
         /// <summary>
         /// 从指定文件中加载光标
