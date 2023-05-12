@@ -26,6 +26,10 @@ namespace Win32NET
         /// </summary>
         internal const string Gdi32dll = "gdi32";
 
+        /// <summary>
+        /// advapi32.dll
+        /// </summary>
+        internal const string Advapi32dll = "advapi32";
 
     }
 }

@@ -10,6 +10,7 @@ namespace Win32NET
     /// <summary>
     /// Win32API描述特性
     /// </summary>
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
     public class WinApiAttribute : Attribute
     {
         public WinApiAttribute(string funcName, string dllname, CallingConvention calling = CallingConvention.Winapi, string des = "")
@@ -30,13 +31,23 @@ namespace Win32NET
             this.Prototype = proto;
         }
 
-        public WinApiAttribute(string funcName, string dllname, string proto, CallingConvention calling = CallingConvention.Winapi, string des = "")
+        public WinApiAttribute(string funcName, string dllname, string proto, CallingConvention calling, string des = "")
         {
             this.DllName = dllname;
             this.Name = funcName;
             this.Descripton = des;
             this.CallingConvention = calling;
             this.Prototype = proto;
+        }
+
+
+        public WinApiAttribute(string funcName, string dllname, string des = "")
+        {
+            this.DllName = dllname;
+            this.Name = funcName;
+            this.Descripton = des;
+            this.CallingConvention = CallingConvention.Winapi;
+            this.Prototype = "";
         }
 
         /// <summary>
@@ -69,6 +80,7 @@ namespace Win32NET
         public string Descripton { get; private set; }
     }
 
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
     public class ApiReturnAttribute : Attribute
     {
         public ApiReturnAttribute(MarshalType type, string des = "")
@@ -91,6 +103,7 @@ namespace Win32NET
     /// <summary>
     /// 参数特性标记
     /// </summary>
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
     public class ApiParamAttribute : Attribute
     {
         public ApiParamAttribute(string name, MarshalType type, string des = "")
@@ -120,6 +133,7 @@ namespace Win32NET
     /// <summary>
     /// 本地交互枚举类型描述
     /// </summary>
+    [AttributeUsage(AttributeTargets.Enum)]
     public class ApiEnumDefAttribute : Attribute
     {
         public ApiEnumDefAttribute(MarshalType type, string des = "")
@@ -188,6 +202,7 @@ namespace Win32NET
         /// C字符串 引用定义 <see cref="string"/> 类型,标记 <see cref="MarshalAsAttribute"/> 参数为 <see cref="UnmanagedType.LPStr"/>
         /// </summary>
         CString,
+        AutoString,
         /// <summary>
         /// 指针型 引用定义 <see cref="IntPtr"/> 类型
         /// </summary>
@@ -208,6 +223,8 @@ namespace Win32NET
         /// C#内定义枚举类型 引用默认定义 <see cref="int"/> 类型,标记 <see cref="MarshalAsAttribute"/> 参数指定详细类型
         /// </summary>
         Enum,
+        Array,
+        Struct,
     }
 
 }
