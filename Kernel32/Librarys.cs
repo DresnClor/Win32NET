@@ -25,23 +25,21 @@ namespace Win32NET
 
         /// <summary>
         /// 释放动态库
-        /// <para />
-        /// 函数原型:BOOL WINAPI FreeLibrary( _In_ HMODULE hModule);
         /// </summary>
-        /// <param name="module">模块句柄</param>
-        /// <returns>成功返回真</returns>
         [DllImport(Win32.Kernel32dll, CharSet = CharSet.Auto)]
+        [WinApi("FreeLibrary", Win32.Kernel32dll, "BOOL WINAPI FreeLibrary( _In_ HMODULE hModule)", "释放动态库")]
+        [ApiReturn(MarshalType.Bool, "成功返回真")]
+        [ApiParam("module", MarshalType.Ptr, "模块句柄")]
         public static extern bool FreeLibrary(IntPtr module);
 
         /// <summary>
-        /// 查找dll函数
-        /// <para />
-        /// 函数原型:FARPROC GetProcAddress(HMODULE hModule, LPCSTR lpProcName);
+        /// 查找dll内的函数
         /// </summary>
-        /// <param name="hModule">dll模块句柄</param>
-        /// <param name="lpProcName">函数名称</param>
-        /// <returns></returns>
         [DllImport(Win32.Kernel32dll, CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
+        [WinApi("", Win32.Kernel32dll, "FARPROC GetProcAddress(HMODULE hModule, LPCSTR lpProcName)", "查找dll内的函数")]
+        [ApiReturn(MarshalType.Ptr, "找到函数返回地址，未找到返回空指针")]
+        [ApiParam("hModule", MarshalType.Ptr, "dll模块句柄")]
+        [ApiParam("lpProcName", MarshalType.CString, "函数名称")]
         public static extern IntPtr GetProcAddress(
             IntPtr hModule,
             [MarshalAs(UnmanagedType.LPStr)]
@@ -49,22 +47,20 @@ namespace Win32NET
 
         /// <summary>
         /// 设置dll查找目录
-        /// <para />
-        /// 函数原型:BOOL SetDllDirectoryA(LPCSTR lpPathName);
         /// </summary>
-        /// <param name="lpPathName">路径</param>
-        /// <returns></returns>
         [DllImport(Win32.Kernel32dll, CharSet = CharSet.Auto, SetLastError = true)]
+        [WinApi("SetDllDirectory", Win32.Kernel32dll, "BOOL SetDllDirectoryA(LPCSTR lpPathName)", "设置dll查找目录")]
+        [ApiReturn(MarshalType.Bool)]
+        [ApiParam("lpPathName", MarshalType.AutoString, "dll查找路径")]
         public static extern bool SetDllDirectory(string lpPathName);
 
         /// <summary>
         /// 关闭包括文件、文件映射、进程、线程、安全和同步对象等
-        /// <para />
-        /// 函数原型:BOOL CloseHandle(HANDLE hObject);
         /// </summary>
-        /// <param name="handle">代表一个已打开对象handle</param>
-        /// <returns></returns>
         [DllImport(Win32.Kernel32dll, CharSet = CharSet.Auto)]
+        [WinApi("CloseHandle", Win32.Kernel32dll, "BOOL CloseHandle(HANDLE hObject)", "关闭包括文件、文件映射、进程、线程、安全和同步对象等")]
+        [ApiReturn(MarshalType.Bool)]
+        [ApiParam("handle", MarshalType.Ptr, "代表一个已打开对象handle")]
         public static extern bool CloseHandle(IntPtr handle);
 
     }

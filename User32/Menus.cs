@@ -15,15 +15,14 @@ namespace Win32NET
     {
         /// <summary>
         /// 在指定的菜单里添加一个菜单项
-        /// <para />
-        /// 函数原型:BOOL AppendMenu（hMenu hMenu，UINT uFlags，UINT uIDNewltem，LPCTSTR lpNewltem）;
         /// </summary>
-        /// <param name="hMenu">将被修改的菜单条、下拉式菜单、子菜单、或快捷菜单的句柄</param>
-        /// <param name="uFlags">控制新菜单项的外观和性能的标志</param>
-        /// <param name="uIDNewltem">指定新菜单项的标识符，或者当uFlags设置为MF_POPUP时，表示下拉式菜单或子菜单的句柄</param>
-        /// <param name="lpNewltem">指定新菜单项的内容。此参数的含义取决于参数uFlags是否包含MF_BITMAP, MF_OWNERDRAW或MF_STRING标志</param>
-        /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("AppendMenu", Win32.User32dll, "BOOL AppendMenu（hMenu hMenu，UINT uFlags，UINT uIDNewltem，LPCTSTR lpNewltem）", "在指定的菜单里添加一个菜单项")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("hMenu", MarshalType.Ptr, "将被修改的菜单条、下拉式菜单、子菜单、或快捷菜单的句柄")]
+        [ApiParam("uFlags", MarshalType.Enum, "控制新菜单项的外观和性能的标志")]
+        [ApiParam("uIDNewltem", MarshalType.UInt32, "指定新菜单项的标识符，或者当uFlags设置为MF_POPUP时，表示下拉式菜单或子菜单的句柄")]
+        [ApiParam("lpNewltem", MarshalType.AutoString, "指定新菜单项的内容。此参数的含义取决于参数uFlags是否包含MF_BITMAP, MF_OWNERDRAW或MF_STRING标志")]
         public static extern bool AppendMenu(
             IntPtr hMenu,
             [MarshalAs(UnmanagedType.U4)]
@@ -34,14 +33,13 @@ namespace Win32NET
 
         /// <summary>
         /// 复选或撤消复选指定的菜单条目
-        /// <para />
-        /// 函数原型:DWORD CheckMenuItem(HMENU hmenu, UINT uIDCheckItem, UINT uCheck);
         /// </summary>
-        /// <param name="hMenu">含有其菜单项的标志将被提取得的菜单的句柄</param>
-        /// <param name="uIDCheckltem">其某单标志将被取得的菜单项，此参数含义由参数uCheck决定</param>
-        /// <param name="uCheck">用于指定参数uld的含义的值</param>
-        /// <returns>如果指定的项不存在，返回值是OXFFFFFFFF；如果菜单项打开了一个子菜单，则返回值的低位含有与菜单相联系的菜单标志，高位含有子菜单的项数。否则，返回值是莱单标志的掩码（布尔OR）</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("CheckMenuItem", Win32.User32dll, "DWORD CheckMenuItem(HMENU hmenu, UINT uIDCheckItem, UINT uCheck)", "复选或撤消复选指定的菜单条目")]
+        [ApiReturn(MarshalType.Int32, "如果指定的项不存在，返回值是OXFFFFFFFF；如果菜单项打开了一个子菜单，则返回值的低位含有与菜单相联系的菜单标志，高位含有子菜单的项数。否则，返回值是莱单标志的掩码（布尔OR）")]
+        [ApiParam("hMenu", MarshalType.Ptr, "含有其菜单项的标志将被提取得的菜单的句柄")]
+        [ApiParam("uIDCheckltem", MarshalType.UInt32, "其某单标志将被取得的菜单项，此参数含义由参数uCheck决定")]
+        [ApiParam("uCheck", MarshalType.Enum, "用于指定参数uld的含义的值")]
         public static extern int CheckMenuItem(
             IntPtr hMenu,
             uint uIDCheckltem,
@@ -50,16 +48,15 @@ namespace Win32NET
 
         /// <summary>
         /// 指定一个菜单条目被复选成”单选”项目 
-        /// <para />
-        /// 函数原型:BOOL CheckMenuRadioItem(HMEN hMENU,UINT idFirst,UINT idLast,UINT idCheck,UINT uFlags)；
         /// </summary>
-        /// <param name="hMenu">包含一组菜单项的菜单的句柄</param>
-        /// <param name="idFirst">菜单组里第一个菜单项的标识符或位置</param>
-        /// <param name="idLast">菜单组里最后一个菜单项的标识符或位置</param>
-        /// <param name="idCheck">要校核的菜单项的标识符或位置</param>
-        /// <param name="uFlags">指定idFirst，idLast，idCheck含义的值。如果此参数为MF_BYCOMMAND,则其他参数指定菜单项标识符。如果此参数为MF_BYPOSITION，则其他参数指定菜单项位置</param>
-        /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("CheckMenuRadioItem", Win32.User32dll, "BOOL CheckMenuRadioItem(HMEN hMENU,UINT idFirst,UINT idLast,UINT idCheck,UINT uFlags)", "指定一个菜单条目被复选成”单选”项目 ")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("hMenu", MarshalType.Ptr, "包含一组菜单项的菜单的句柄")]
+        [ApiParam("idFirst", MarshalType.UInt32, "菜单组里第一个菜单项的标识符或位置")]
+        [ApiParam("idLast", MarshalType.UInt32, "菜单组里最后一个菜单项的标识符或位置")]
+        [ApiParam("idCheck", MarshalType.UInt32, "要校核的菜单项的标识符或位置")]
+        [ApiParam("uFlags", MarshalType.Enum, "指定idFirst，idLast，idCheck含义的值。如果此参数为MF_BYCOMMAND,则其他参数指定菜单项标识符。如果此参数为MF_BYPOSITION，则其他参数指定菜单项位置")]
         public static extern bool CheckMenuRadioItem(
             IntPtr hMenu,
             uint idFirst,
@@ -70,11 +67,10 @@ namespace Win32NET
 
         /// <summary>
         /// 创建新菜单
-        /// <para />
-        /// 函数原型:HMENU CreateMenu();
         /// </summary>
-        /// <returns>如果函数调用成功，返回值是新创建菜单的句柄；否则返回 <see cref="IntPtr.Zero"/></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("CreateMenu", Win32.User32dll, "HMENU CreateMenu()", "创建新菜单")]
+        [ApiReturn(MarshalType.Ptr, "如果函数调用成功，返回值是新创建菜单的句柄；否则返回IntPtr.Zero")]
         public static extern IntPtr CreateMenu();
 
         /// <summary>
@@ -84,18 +80,19 @@ namespace Win32NET
         /// </summary>
         /// <returns>如果函数调用成功，返回值是新创建菜单的句柄；否则返回 <see cref="IntPtr.Zero"/></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("CreatePopupMenu", Win32.User32dll, "HMENU CreatePopupMenu()", "创建一个空的弹出式菜单")]
+        [ApiReturn(MarshalType.Ptr, "如果函数调用成功，返回值是新创建菜单的句柄；否则返回IntPtr.Zero")]
         public static extern IntPtr CreatePopupMenu();
 
         /// <summary>
         /// 删除指定的菜单条目
-        /// <para />
-        /// 函数原型:BOOL DeleteMenu( __in HMENU hMenu, __in UINT uPosition, __in UINT uFlags);
         /// </summary>
-        /// <param name="hMenu">菜单句柄</param>
-        /// <param name="uPosition">欲删除菜单条目的标识符。如在wFlags中设置了MF_BYCOMMAND标志，这个参数就代表要改变的菜单条目的命令ID。如设置了MF_BYPOSITION标志，这个参数就代表条目在菜单中的位置（头一个条目肯定是零）</param>
-        /// <param name="uFlags">MF_BYPOSITION(0x400)或，具体由nPosition参数决定</param>
-        /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("DeleteMenu", Win32.User32dll, "BOOL DeleteMenu(HMENU hMenu, UINT uPosition, UINT uFlags)", "删除指定的菜单条目")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("hMenu", MarshalType.Ptr, "菜单句柄")]
+        [ApiParam("uPosition", MarshalType.UInt32, "欲删除菜单条目的标识符。如在wFlags中设置了MF_BYCOMMAND标志，这个参数就代表要改变的菜单条目的命令ID。如设置了MF_BYPOSITION标志，这个参数就代表条目在菜单中的位置（头一个条目肯定是零）")]
+        [ApiParam("uFlags", MarshalType.Enum, "MF_BYPOSITION(0x400)或，具体由nPosition参数决定")]
         public static extern bool DeleteMenu(
             IntPtr hMenu,
             uint uPosition,
@@ -104,22 +101,20 @@ namespace Win32NET
 
         /// <summary>
         /// 销毁指定的菜单，并释放此菜单占用的内存
-        /// <para />
-        /// 函数原型:BOOL DestroyMenu（HMENU hMenu）；
         /// </summary>
-        /// <param name="hMenu">要销毁的菜单的句柄</param>
-        /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("DestroyMenu", Win32.User32dll, "BOOL DestroyMenu（HMENU hMenu）", "销毁指定的菜单，并释放此菜单占用的内存")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("hMenu", MarshalType.Ptr, "要销毁的菜单的句柄")]
         public static extern bool DestroyMenu(IntPtr hMenu);
 
         /// <summary>
         /// 为指定的窗口重画菜单
-        /// <para />
-        /// 函数原型:BOOL DrawMenuBar（HWND hWnd）；
         /// </summary>
-        /// <param name="hWnd">其菜单条需要被重画的窗口句柄</param>
-        /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("DrawMenuBar", Win32.User32dll, "BOOL DrawMenuBar（HWND hWnd）", "为指定的窗口重画菜单")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("hWnd", MarshalType.Ptr, "其菜单条需要被重画的窗口句柄")]
         public static extern bool DrawMenuBar(IntPtr hWnd);
 
         /// <summary>
@@ -132,6 +127,9 @@ namespace Win32NET
         /// <param name="wEnable">参考ModifyMenu函数中的菜单常数标志定义表，其中列出了允许使用的所有常数。对于这个函数，只能指定下述常数：MF_BYCOMMAND，MF_BYPOSITION，MF_ENABLED，MF_DISABLED以及MF_GRAYED</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool EnableMenuItem(
             IntPtr hMenu,
             uint uIDEnableItem,
@@ -146,6 +144,9 @@ namespace Win32NET
         /// <param name="hWnd">窗口句柄</param>
         /// <returns>返回值是菜单的句柄。如果给定的窗口没有菜单，则返回 <see cref="IntPtr.Zero"/></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern IntPtr GetMenu(IntPtr hWnd);
 
         /// <summary>
@@ -157,6 +158,9 @@ namespace Win32NET
         /// </summary>
         /// <returns>返回值指定缺省选取标记位图的高度和宽度（按像素）。高位字包含高度，低位字包含宽度</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern int GetMenuCheckMarkDimensions();
 
         /// <summary>
@@ -167,6 +171,9 @@ namespace Win32NET
         /// <param name="hMenu">菜单句柄</param>
         /// <returns>如果存在，就返回帮助场景ID；否则返回零</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern int GetMenuContextHelpId(IntPtr hMenu);
 
         /// <summary>
@@ -179,6 +186,9 @@ namespace Win32NET
         /// <param name="gmdiFlags">指示函数应如何搜索菜单项。 此参数可以是以下值的零个或多个:GMDI_GOINTOPOPUPS=0x0002L</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern uint GetMenuDefaultItem(
             IntPtr hMenu, 
             bool fByPos, 
@@ -192,6 +202,9 @@ namespace Win32NET
         /// <param name="hMenu">菜单句柄</param>
         /// <returns>返回菜单中条目（菜单项）的数量</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern int GetMenuItemCount(IntPtr hMenu);
 
         /// <summary>
@@ -203,6 +216,9 @@ namespace Win32NET
         /// <param name="nPos">要检索其标识符的菜单项的从零开始的相对位置</param>
         /// <returns>返回位于菜单中指定位置处的条目的菜单ID</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern uint GetMenuItemID(IntPtr hMenu, int nPos);
 
         /// <summary>
@@ -216,6 +232,9 @@ namespace Win32NET
         /// <param name="lpmii">指向 MENUITEMINFO 结构的指针，该结构指定要检索和接收有关菜单项的信息。 请注意，在调用此函数之前，必须将 cbSize 成员设置为 sizeof(MENUITEMINFO) 该成员</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool GetMenuItemInfo(
             IntPtr hMenu, 
             uint item, 
@@ -233,6 +252,9 @@ namespace Win32NET
         /// <param name="lprcItem">指向 RECT 结构的指针，该结构接收以屏幕坐标表示的指定菜单项的边界矩形</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool GetMenuItemRect(
             IntPtr hWnd,
             IntPtr hMenu, 
@@ -249,6 +271,9 @@ namespace Win32NET
         /// <param name="uFlags">指示 如何解释 uId 参数。 此参数的取值可为下列值之一:MF_BYCOMMAND, MF_BYPOSITION</param>
         /// <returns>如果指定的项不存在，则返回值为 -1。如果菜单项打开一个子菜单，则返回值的低序字节包含与该项关联的菜单标志，而高顺序字节包含项目打开的子菜单中的项数。否则，返回值为菜单标志 (按位或) 掩码</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern uint GetMenuState(
             IntPtr hMenu, 
             uint uId,
@@ -267,6 +292,9 @@ namespace Win32NET
         /// <param name="flags">指示 如何解释 uIDItem 参数。 此参数必须是下列值之一:MF_BYCOMMAND, MF_BYPOSITION</param>
         /// <returns>如果函数成功，则返回值将指定复制到缓冲区的字符数，不包括终止 null 字符。如果函数失败，则返回值为零。</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern int GetMenuString(
             IntPtr hMenu, 
             uint uIDItem, 
@@ -284,6 +312,9 @@ namespace Win32NET
         /// <param name="nPos">激活下拉菜单或子菜单的项的指定菜单中的从零开始的相对位置</param>
         /// <returns>如果函数成功，则返回值是菜单项激活的下拉菜单或子菜单的句柄。如果菜单项未激活下拉菜单或子菜单，则返回值为 <see cref="IntPtr.Zero"/></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern IntPtr GetSubMenu(IntPtr hMenu, int nPos);
 
         /// <summary>
@@ -295,6 +326,9 @@ namespace Win32NET
         /// <param name="bRevert">要执行的操作。 如果此参数为 FALSE， GetSystemMenu 将返回当前正在使用的窗口菜单副本的句柄。 副本最初与窗口菜单相同，但可以对其进行修改。 如果此参数为 TRUE， GetSystemMenu 会将窗口菜单重置回默认状态。 上一个窗口菜单（如果有）将被销毁</param>
         /// <returns>如果 bRevert 参数为 FALSE，则返回值是窗口菜单副本的句柄。 如果 bRevert 参数为 TRUE，则返回值为 <see cref="IntPtr.Zero"/></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern IntPtr GetSystemMenu(IntPtr hWnd,bool bRevert);
 
         /// <summary>
@@ -308,6 +342,9 @@ namespace Win32NET
         /// <param name="uHilite">控制 uItemHilite 参数的解释，并指示是否突出显示菜单项。 此参数必须是MF_BYCOMMAND或MF_BYPOSITION和MF_HILITE或MF_UNHILITE的组合</param>
         /// <returns>如果菜单项设置为指定的突出显示状态，则返回值为非零。如果未将菜单项设置为指定的突出显示状态，则返回值为零</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool HiliteMenuItem(
             IntPtr hWnd, 
             IntPtr hMenu, 
@@ -327,6 +364,9 @@ namespace Win32NET
         /// <param name="lpNewltem">指定新菜单项的内容。其含义依赖于参数UFlags是否包含标志MF_BITMAP,MF_OWNERDRAW或MF_STRING</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool InsertMenu(
             IntPtr hMenu, 
             uint uPosition,
@@ -347,6 +387,9 @@ namespace Win32NET
         /// <param name="lpmi">指向MENUITEMINFO结构的指针，该结构包含有关新菜单项的信息</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool InsertMenuItem(
             IntPtr hMenu, 
             uint item, 
@@ -361,6 +404,9 @@ namespace Win32NET
         /// <param name="hMenu">菜单的句柄</param>
         /// <returns>如果hMenu是一个菜单句柄，返回true</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool IsMenu(IntPtr hMenu);
 
         /// <summary>
@@ -372,6 +418,9 @@ namespace Win32NET
         /// <param name="lpMenuName">指向含有菜单资源名的以空结束的字符串的指针。同时，此参数可由低位字上的资源标识符和高位字上的零组成。要创建此值，用MAKEINTRESOURCE宏。注意，菜单ID（所有资源ID类同）也可以直接由字符串构造，如ID值为"IDM_MYMENU"(ID值含引号）</param>
         /// <returns>如果函数调用成功，返回值是菜单资源句柄；如果函数调用失败，返回值是 <see cref="IntPtr.Zero"/></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern IntPtr LoadMenu(
             IntPtr hlnstance,
             [MarshalAs(UnmanagedType.LPStr)]
@@ -387,6 +436,9 @@ namespace Win32NET
         /// <param name="ptScreen">指定要测试的位置的结构。 如果 hMenu 指定菜单栏，则此参数位于窗口坐标中。 否则，它位于客户端坐标中</param>
         /// <returns>返回菜单项在指定位置的从零开始的位置;如果没有菜单项位于指定位置，则返回 -1</returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern int MenuItemFromPoint(
             IntPtr hWnd, 
             IntPtr hMenu, 
@@ -404,6 +456,9 @@ namespace Win32NET
         /// <param name="IpNewltem">指定被修改菜单项的内容。其含义依赖于参数UFlags是否包含标志MF_BITMAP,MF_OWNERDRAW或MF_STRING</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool ModifyMenu(
             IntPtr hMenu, 
             uint uPosition,
@@ -423,6 +478,9 @@ namespace Win32NET
         /// <param name="uFlags">指定参数uPosition如何解释</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool RemoveMenu(
             IntPtr hMenu,
             uint uPosition,
@@ -438,6 +496,9 @@ namespace Win32NET
         /// <param name="hMenu">新菜单的句柄。如果菜单参数为NULL，则窗口的当前菜单被删除</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool SetMenu(IntPtr hWnd, IntPtr hMenu);
 
         /// <summary>
@@ -450,6 +511,9 @@ namespace Win32NET
         /// <param name="fByPos">如果此参数为 false， 则 uItem 是菜单项标识符。 否则，它是菜单项位置</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool SetMenuDefaultItem(
             IntPtr hMenu, 
             uint uItem, 
@@ -467,6 +531,9 @@ namespace Win32NET
         /// <param name="hBitmapChecked">选择菜单项时显示的位图的句柄</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool SetMenuItemBitmaps(
             IntPtr hMenu, 
             uint uPosition,
@@ -486,6 +553,9 @@ namespace Win32NET
         /// <param name="lpmii">指向结构MENUITEMINFO的指针。该结构含有菜单项的信息，并且．指定将被修改的菜单项的属性</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool SetMenuItemInfo(
             IntPtr hMenu, 
             uint uitem,
@@ -506,6 +576,9 @@ namespace Win32NET
         /// <param name="prcRect">已忽略</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool TrackPopupMenu(
             IntPtr hMenu,
             [MarshalAs(UnmanagedType.U4)]
@@ -530,6 +603,9 @@ namespace Win32NET
         /// <param name="lptpm">指向 TPMPARAMS 结构的指针，该结构指定菜单不应重叠的屏幕区域。 此参数可以为 NULL</param>
         /// <returns></returns>
         [DllImport(Win32.User32dll)]
+        [WinApi("", Win32.User32dll, "", "")]
+        [ApiReturn(MarshalType.Bool, "")]
+        [ApiParam("", MarshalType.Ptr, "")]
         public static extern bool TrackPopupMenuEx(
             IntPtr hMenu,
             [MarshalAs(UnmanagedType.U4)]

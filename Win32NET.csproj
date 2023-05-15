@@ -165,7 +165,7 @@
     <Compile Include="User32\WindowsMessage.cs" />
     <Compile Include="User32\Cursors.cs" />
     <Compile Include="User32\Menus.cs" />
-    <Compile Include="User32\Wnds.cs" />
+    <Compile Include="User32\Window.cs" />
     <Compile Include="User32\Images.cs" />
     <Compile Include="Attributes.cs" />
     <Compile Include="Userenv\Userenv.cs" />
