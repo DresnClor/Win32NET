@@ -31,5 +31,35 @@ namespace Win32NET
         /// </summary>
         internal const string Advapi32dll = "advapi32";
 
-    }
+		/// <summary>
+		/// netapi32.dll
+		/// </summary>
+		internal const string Netapi32dll = "netapi32";
+
+		/// <summary>
+		/// shell32.dll
+		/// </summary>
+		internal const string Shell32dll = "shell32";
+
+		/// <summary>
+		/// userenv.dll
+		/// </summary>
+		internal const string Userenvdll = "userenv";
+
+		/// <summary>
+		/// httpapi.dll
+		/// </summary>
+		internal const string Httpapidll = "httpapi";
+
+		/// <summary>
+		/// gdiplus.dll
+		/// </summary>
+		internal const string Gdiplusdll = "gdiplus";
+
+		/// <summary>
+		/// crypt32.dll
+		/// </summary>
+		internal const string Crypt32dll = "crypt32";
+
+	}
 }

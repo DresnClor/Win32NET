@@ -225,6 +225,7 @@ namespace Win32NET
         Enum,
         Array,
         Struct,
+        Handle
     }
 
 }

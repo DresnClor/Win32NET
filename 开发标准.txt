@@ -3,14 +3,17 @@
 类命名规范：采用大驼峰命名法
 示例：ClassName;
 
-文档注释示例：
+文档注释示例（详细信息使用特性标记）：
 /// <summary>
 /// 
-/// <para />
-/// 函数原型:
 /// </summary>
-/// <param name=""></param>
-/// <return></return>
+[WinApi("", Win32., "", "")]
+[ApiReturn(MarshalType.Bool, "")]
+[ApiParam("", MarshalType.Ptr, "")]
+
+
+
+
 
 类型转换
 C#      =>  C/C++
@@ -25,7 +28,3 @@ float   => float
 double  => double
 bool    => BOOL
 
-
-        [WinApi("", Win32.Kernel32dll, "", "")]
-        [ApiReturn(MarshalType.Bool, "")]
-        [ApiParam("", MarshalType.Ptr, "")]
